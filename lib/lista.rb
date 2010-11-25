@@ -1,6 +1,6 @@
 class Lista
-	attr_reader :numeros
-	attr_reader :sinal
+  attr_reader :numeros
+  attr_reader :sinal
 
   def initialize(lista_str)
     lista_str.gsub!(/\((.*)\)/){$1}
@@ -9,9 +9,9 @@ class Lista
     elementos.delete_if{|elemento| elemento.empty?}
     @sinal = elementos.delete_at 0
     numeros = elementos.collect{|elemento| elemento.to_number}
-	end
+  end
 	
-	def resolver
-		@numeros.inject{|resultado,numero| resultado.method(sinal).call(numero) }
-	end 
+  def resolver
+    @numeros.inject{|resultado,numero| resultado.method(sinal).call(numero) }
+  end 
 end
